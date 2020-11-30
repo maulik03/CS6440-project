@@ -27,6 +27,7 @@ angular.module('pharmacyPageController.module',[]).controller('pharmacyPageContr
 $scope.getPharmacyList()
 
 $scope.selectmyPharmacy=function(pharm_number){
+	console.log(pharm_number)
 	var data ={
 		"p_email" : $scope.user,
 		"id":pharm_number,
