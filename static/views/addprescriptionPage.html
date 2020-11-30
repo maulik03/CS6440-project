@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<body>
+
+    <nav class="navbar navbar-expand-md navbar navbar-light fixed-top " style="background-color: #137de0;">
+      <a class="navbar-brand text-white">BloodSugar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#/doctorhomePage">Home</a>
+          </li>
+        </ul>
+      </div>
+        <button type="submit" class="btn btn-warning" ng-click="logout()">Logout</button>
+    </nav>
+      <br><br><br>
+
+      <div class="container">
+          <h5>Add Prescription</h5>
+          <div class="alert alert-success" ng-show="successMessagebool" style= "text-align: center;">
+            <strong>{{successMessage}}</strong>
+          </div>
+          <div class ="row">
+                <table class="table table-striped text-capitalize" style= "text-align: center;">
+                  <tbody>
+                    <tr>
+                      <th>Patient Name</th>
+                      <th>{{prescribe_data[0].f_name}} {{prescribe_data[0].l_name}}</th>
+                    </tr>
+                    <tr>
+                        <th>Patient BirthDate</th>
+                        <th>{{prescribe_data[0].b_date}} </th>
+                      </tr>
+                      <tr>
+                        <th>Selected Medicine</th>
+                        <th>{{prescribe_data[0].med_name}} </th>
+                    </tr>
+                    <tr>
+                        <th>Medicine Advise</th>
+                        <th>{{prescribe_data[0].med_info}} </th>
+                    </tr>
+                    <tr>
+                        <th>Medicine Quantity</th>
+                        <th>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" ng-model="quantity" id="quantity">
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Prescription IssueDate</th>
+                        <th>
+                            <div class="col-sm-10">
+                                <input type="date" datetime="yyyy-MM-dd"class="form-control" id="issuedate" ng-model="issuedate">
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Prescription Refils</th>
+                        <th>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" ng-model="numrefils" id="numrefils">
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Prescription Duration</th>
+                        <th>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" ng-model="d_time" id="d_time">
+                            </div>
+                        </th>
+                    </tr>
+
+                  </tbody>
+                </table>
+                <button type="submit" class="btn btn-info" ng-click=addPrescription()>Add Prescription</button>
+          </div>
+    
+    
+</body>

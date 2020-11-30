@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<body>
+
+    <nav class="navbar navbar-expand-md navbar navbar-light fixed-top " style="background-color: #137de0;">
+      <a class="navbar-brand text-white">BloodSugar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#/doctorhomePage">Home</a>
+          </li>
+        </ul>
+      </div>
+        <button type="submit" class="btn btn-warning" ng-click="logout()">Logout</button>
+    </nav>
+      <br><br><br>
+      <main role="main">
+
+        <div class="container" style= "text-align: center;">
+          <!-- Example row of columns -->
+    
+            <table class="table table-striped">
+               <thead>
+                 <tr>
+                   <th>Issue Date</th>
+                   <th>Medicine Name</th>
+                   <th>Medicine Quantity</th>
+                   <th>Number of Refils</th>
+                   <th>Prescription Duration</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr ng-repeat = "entry in reading_data">
+                  <td>{{entry.p_issuedate}}</td>
+                  <td>{{entry.pre_medname}}</td>
+                  <td>{{entry.p_medquantity}}</td>
+                  <td>{{entry.p_refills}}</td>
+                  <td>{{entry.p_duration}}</td>
+                 </tr>
+               </tbody>
+             </table>
+             <div class ="alert alert-info" ng-show="messagebool">
+              <strong>{{displaymessage}}</strong>
+            </div>
+          <br>
+        </div>
+      </main>    
+</body>

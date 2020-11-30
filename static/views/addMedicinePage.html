@@ -1,0 +1,73 @@
+<html>
+<body>
+
+  <nav class="navbar navbar-expand-md navbar navbar-light fixed-top " style="background-color: #137de0;">
+    <a class="navbar-brand text-white">BloodSugar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#/doctorhomePage">Home</a>
+        </li>
+      </ul>
+    </div>
+					<button type="submit" class="btn btn-warning" ng-click="logout()">Logout</button>
+  </nav>
+  <br><br><br>
+  
+ <main role="main">
+
+  <div class="container">
+    <h3>Add Medicine</h3>
+    <div class>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="username">Name:</label>
+            <div class="col-sm-10">{{p_user}}</div>
+        </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="med_name">Medicine Name:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" ng-model="med_name" id="med_name">
+          </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="med_info">Medicine Advise:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="med_info" ng-model="med_info">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="med_status">Medicine Status:</label>
+        <div class="col-sm-10">
+          <select name="test" id="med_status" ng-model="med_status" ng-model="data.singleSelect"class="browser-default custom-select custom-select-lg mb-3">
+            <option value="Active">Active</option>
+            <option value="Stop">Stop</option>
+          </select>
+        </div>
+      </div>
+      <!-- TODO: create update function -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-info" ng-click=insertMedicine()>Add Medicine</button>
+            <!--<div class="col-sm-12">-->
+              <div class="alert alert-success" ng-show="successMessagebool">
+                <strong>{{successMessage}}</strong>
+              </div>
+          <!--</div>-->
+        </div>
+      </div>
+    </form>
+    <div class="alert alert-danger" ng-show = "errormsg">
+      <strong>Something wrong with Data!</strong> Please validate and try again.
+    </div>
+    </div>
+  </div>
+
+
+</main>
+</body>
+</html>

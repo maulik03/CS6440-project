@@ -1,0 +1,143 @@
+<html>
+<body>
+
+  <nav class="navbar navbar-expand-md navbar navbar-light fixed-top " style="background-color: #137de0;">
+    <a class="navbar-brand text-white">BloodSugar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#/homePage">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#/inputForm">InputForm</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#/report">BloodSugarReport</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#/viewPharmacy">Pharmacy</a>
+        </li>
+      </ul>
+    </div>
+					<button type="submit" class="btn btn-warning" ng-click="logout()">Logout</button>
+  </nav>
+  <br><br><br>
+  <div class ="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 style= "text-align: center;"class="card-title">Patient information</h5>
+            <div>
+              FirstName:
+              <p id="f_name"></p>
+              LastName:
+              <p id="l_name"></p>
+              Age(Years):
+              <p id="date"></p>
+            </div>
+            PhoneNumber:
+            <p id ="pnumber"></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 style= "text-align: center;"class="card-title">Pharmacy informaiton</h5>
+            <div class="alert alert-success" ng-show="successMessagebool">
+              <strong>{{successMessage}}</strong>
+            </div>
+            <div class ="alert alert-danger" ng-show="messagebool">
+              <strong>{{displaymessage}}</strong>
+            </div>
+            <div ng-repeat = "entry in myPharm_info">
+              Pharmacy Name: {{entry.pharm_name}} </br>
+              Pharmacy Address: {{entry.pharm_adr}} </br> 
+              Pharmacy PhoneNumber: {{entry.pharm_num}} </br> 
+              Pharmacy FaxNumber:{{entry.pharm_fax}} </br>
+              Pharmacy Hours : Monday to Satuday  9 AM to 7 PM </br>
+              <a type="button" class="btn btn-danger" ng-click="deletePharmacy()">Remove</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--card row number 2-->
+</br>
+  <div class ="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 style= "text-align: center;"class="card-title">Medicine information</h5>
+            <table class="table table-striped;">
+              <thead style= "text-align: center;">
+                <tr>
+                  <th>Medicine Name</th>
+                  <th>Medcine informaiton</th>
+                  <th>Medicine Status</th>
+                </tr>
+              </thead>
+              <tbody style= "text-align: center;">
+                <tr ng-repeat = "entry in reading_data">
+                 <td>{{entry.med_name}}</td>
+                 <td>{{entry.med_info}}</td>
+                 <td>{{entry.med_status}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class ="alert alert-info" ng-show="messageboolmed">
+              <strong>{{displaymessageMed}}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 style= "text-align: center;"class="card-title">Prescription informaiton</h5>
+            <main role="main">
+
+              <div class="container" style= "text-align: center;">
+                <!-- Example row of columns -->
+          
+                  <table class="table table-striped">
+                     <thead>
+                       <tr>
+                         <th>Issue Date</th>
+                         <th>Medicine Name</th>
+                         <th>Medicine Quantity</th>
+                         <th>Number of Refils</th>
+                         <th>Prescription Duration</th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                       <tr ng-repeat = "entry in mypre_data">
+                        <td>{{entry.p_issuedate}}</td>
+                        <td>{{entry.pre_medname}}</td>
+                        <td>{{entry.p_medquantity}}</td>
+                        <td>{{entry.p_refills}}</td>
+                        <td>{{entry.p_duration}}</td>
+                       </tr>
+                     </tbody>
+                   </table>
+                   <div class ="alert alert-info" ng-show="messageboolpatient">
+                    <strong>{{displaymessagePatient}}</strong>
+                  </div>
+              </div>
+            </main>    
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>

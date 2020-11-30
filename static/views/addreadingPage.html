@@ -1,0 +1,89 @@
+<html>
+<body>
+
+  <nav class="navbar navbar-expand-md navbar navbar-light fixed-top " style="background-color: #137de0;">
+    <a class="navbar-brand text-white">BloodSugar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#/homePage">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#/inputForm">InputForm</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#/report">BloodSugarReport</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#/viewPharmacy">Pharmacy</a>
+        </li>
+      </ul>
+    </div>
+		<button type="submit" class="btn btn-warning" ng-click="logout()">Logout</button>
+  </nav>
+  <br><br><br>
+  
+ <main role="main">
+
+  <div class="container">
+    <h3>Add Blood Sugar</h3>
+    <div class>
+      <form class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="BloodReading">BloodLevel (mg/dL):</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" ng-model="BloodReading" id="BloodReading">
+          </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="date">Date:</label>
+        <div class="col-sm-10">
+          <input type="date" datetime="yyyy-MM-dd"class="form-control" id="date" ng-model="date">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="when_measured">WhenMeasured:</label>
+        <div class="col-sm-10">
+          <select name="cars" id="when_measured" ng-model="when_measured" ng-model="data.singleSelect"class="browser-default custom-select custom-select-lg mb-3">
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+            <option value="snack">Snack</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="measured_time">Time:</label>
+        <div class="col-sm-10">
+          <select name="cars_1" id="measured_time" ng-model="measured_time" ng-model="data.singleSelect"class="browser-default custom-select custom-select-lg mb-3">
+            <option value="before">Before</option>
+            <option value="after">After</option>
+          </select>
+        </div>
+      </div>
+      <!-- TODO: create update function -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-info" ng-click=insertBloodSugar()>Add Blood Sugar</button>
+            <!--<div class="col-sm-12">-->
+              <div class="alert alert-success" ng-show="successMessagebool">
+                <strong>{{successMessage}}</strong>
+              </div>
+          <!--</div>-->
+        </div>
+      </div>
+    </form>
+    <div class="alert alert-danger" ng-show = "errormsg">
+      <strong>Something wrong with Data!</strong> Please validate and try again.
+    </div>
+    </div>
+  </div>
+
+
+</main>
+</body>
+</html>

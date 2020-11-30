@@ -1,0 +1,63 @@
+<html>
+<body>
+
+  <nav class="navbar navbar-expand-md navbar navbar-light fixed-top " style="background-color: #137de0;">
+    <a class="navbar-brand text-white">BloodSugar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#/doctorhomePage">Home</a>
+        </li>
+      </ul>
+    </div>
+					<button type="submit" class="btn btn-warning" ng-click="logout()">Logout</button>
+  </nav>
+	<br><br><br>
+
+  <main role="main">
+
+		<div class="container">
+			<!-- Example row of columns -->
+
+        <table class="table table-striped">
+           <thead>
+             <tr style= "text-align: center;">
+               <th>Paitent First name</th>
+               <th>Patient Last name</th>
+               <th>BirthDate</th>
+               <th>ViewDetails</th>
+               <th>Medicine</th>
+               <th>Prescription</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr ng-repeat = "entry in patients_data" style= "text-align: center;">
+              <td>{{entry.f_name}}</td>
+              <td>{{entry.l_name}}</td>
+              <td>{{entry.b_date}}</td>
+              <td><a type="button" class="btn btn-dark" ng-href="#/details/{{entry.p_email}}">ViewDetails</a></td>
+              <!--<td><button type="submit" class="btn btn-danger" ng-click="medPage(entry.p_email)">Medicine</button></td>-->
+              <td><a type="button" class="btn btn-danger" ng-href="#/addMedicine/{{entry.p_email}}" >Medicine</a></td>
+              <td><a type="button" class="btn btn-warning" ng-href="#/viewPrescription/{{entry.p_email}}">Prescription</a></td>
+
+        
+             </tr>
+           </tbody>
+         </table>
+
+
+			<br>
+
+
+    </div>
+
+
+  </main>
+
+
+</body>
+</html>

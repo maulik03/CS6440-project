@@ -1,0 +1,115 @@
+<html>
+<body>
+
+  <nav class="navbar navbar-expand-md navbar navbar-light fixed-top " style="background-color: #137de0;">
+    <a class="navbar-brand text-white">BloodSugar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#/doctorhomePage">Home</a>
+        </li>
+      </ul>
+    </div>
+					<button type="submit" class="btn btn-warning" ng-click="logout()">Logout</button>
+  </nav>
+	<br><br><br>
+
+  <main role="main">
+
+		<div class="container">
+      <h3>{{p_user}} Medicine Information</h3>
+			<!-- Example row of columns -->
+
+        <table class="table table-striped" style= "text-align: center;">
+           <thead>
+             <tr >
+               <th>Medicine Name</th>
+               <th>Medicine Advise</th>
+               <th>medicine Status</th>
+               <th>Prescription</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr ng-repeat = "entry in reading_data">
+              <td>{{entry.med_name}}</td>
+              <td>{{entry.med_info}}</td>
+              <!--<td>{{entry.med_status}}</td>-->
+              <td>
+                <div>
+                  <select ng-change ="updmedstatus(entry.med_status,entry.med_name,entry.med_info)"ng-model="entry.med_status" id="newmedstatus" ng-options="status.new_status as status.status for status in statues">
+                  </select>
+                </div>
+              </td>
+              <td><a type="button" class="btn btn-warning" ng-href="#/addPrescription/{{entry.med_name}}">Prescription</a></td>
+            </tr>
+           </tbody>
+         </table>
+         <div class ="alert alert-info" ng-show="messageboolmed" style= "text-align: center;">
+          <strong>{{displaymessageMed}}</strong>
+        </div>
+        
+    </div>
+    <!--pharmacy info-->
+    <div class = "container">
+      <h3>{{p_user}} Blood Sugar Report</h3>
+      <table class="table table-striped" style= "text-align: center;">
+        <thead>
+          <tr>
+            <th>BloodSugarLevel (mg/dL)</th>
+            <th>WhenMeasured</th>
+            <th>Time</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat = "entry in patient_bst_data">
+           <td>{{entry.bloods_level}}</td>
+           <td>{{entry.when_measured}}</td>
+           <td>{{entry.measured_time}}</td>
+           <td>{{entry.entered_date}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class ="alert alert-info" ng-show="messageboolB" style= "text-align: center;">
+        <strong>{{displaymessageBst}}</strong>
+      </div>
+
+    </div>
+
+    <!--Patient Pharmacy info-->
+    <div class = "container" >
+      <h3>{{p_user}}'s Pharmacy</h3>
+      <table class="table table-striped" style= "text-align: center;">
+        <thead>
+          <tr>
+            <th>Pharmacy Name</th>
+            <th>Pharmacy Address</th>
+            <th>Pharmacy Number</th>
+            <th>Pharmacy Fax</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat = "entry in myPharm_info">
+           <td>{{entry.pharm_name}}</td>
+           <td>{{entry.pharm_adr}}</td>
+           <td>{{entry.pharm_num}}</td>
+           <td>{{entry.pharm_fax}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class ="alert alert-warning" ng-show="messagebool" style= "text-align: center;">
+        <strong>{{displaymessage}}</strong>
+      </div>
+
+    </div>
+
+
+  </main>
+
+
+</body>
+</html>

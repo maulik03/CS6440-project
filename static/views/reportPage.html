@@ -1,0 +1,61 @@
+<html>
+<body>
+
+  <nav class="navbar navbar-expand-md navbar navbar-light fixed-top " style="background-color: #137de0;">
+    <a class="navbar-brand text-white">BloodSugar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#/homePage">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#/inputForm">InputForm</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#/report">BloodSugarReport</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#/viewPharmacy">Pharmacy</a>
+        </li>
+      </ul>
+    </div>
+					<button type="submit" class="btn btn-warning" ng-click="logout()">Logout</button>
+  </nav>
+	<br><br><br>
+
+  <main role="main">
+
+		<div class="container">
+			<!-- Example row of columns -->
+
+        <table class="table table-striped" style= "text-align: center;">
+           <thead>
+             <tr>
+               <th>BloodSugarLevel (mg/dL)</th>
+               <th>WhenMeasured</th>
+               <th>Time</th>
+               <th>Date</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr ng-repeat = "entry in reading_data">
+              <td>{{entry.bloods_level}}</td>
+              <td>{{entry.when_measured}}</td>
+              <td>{{entry.measured_time}}</td>
+              <td>{{entry.entered_date}}</td>
+             </tr>
+           </tbody>
+         </table>
+      <br>
+      <div class ="alert alert-info" ng-show="messageboolpatient" style= "text-align: center;">
+        <strong>{{displaymessagePatient}}</strong>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
