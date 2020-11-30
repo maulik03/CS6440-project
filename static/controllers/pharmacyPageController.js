@@ -30,8 +30,7 @@ $scope.selectmyPharmacy=function(pharm_number){
 	console.log(pharm_number)
 	var data ={
 		"p_email" : $scope.user,
-		"id":$scope.pharm_number,
-		"name":$scope.pharm_name
+		"id":pharm_number,
 	};
 	console.log(data);
 	$http({
